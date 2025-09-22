@@ -1,5 +1,5 @@
 ###############################################################################
-## Copyright (C) 2024 Analog Devices, Inc. All rights reserved.
+## Copyright (C) 2024-2025 Analog Devices, Inc. All rights reserved.
 ### SPDX short identifier: ADIBSD
 ###############################################################################
 
@@ -77,6 +77,7 @@ set_global_assignment -name VERILOG_FILE ../../common/fm87/gpio_slave.v
 
 set_instance_assignment -name IO_STANDARD "True Differential Signaling" -to fpga_syncin_0
 set_instance_assignment -name IO_STANDARD "Differential 1.2-V HSTL"     -to fpga_syncout_0
+set_instance_assignment -name IO_STANDARD "Differential 1.2-V HSTL"     -to "fpga_syncout_0(n)"
 set_instance_assignment -name IO_STANDARD "True Differential Signaling" -to sysref2
 set_instance_assignment -name IO_STANDARD "True Differential Signaling" -to clkin6
 set_instance_assignment -name IO_STANDARD "True Differential Signaling" -to clkin10
@@ -227,6 +228,10 @@ set_instance_assignment -name IO_STANDARD "1.2 V" -to agc2[0]
 set_instance_assignment -name IO_STANDARD "1.2 V" -to agc2[1]
 set_instance_assignment -name IO_STANDARD "1.2 V" -to agc3[0]
 set_instance_assignment -name IO_STANDARD "1.2 V" -to agc3[1]
+set_instance_assignment -name IO_STANDARD "1.2 V" -to fpga_syncin_1_p
+set_instance_assignment -name IO_STANDARD "1.2 V" -to fpga_syncin_1_n
+set_instance_assignment -name IO_STANDARD "1.2 V" -to fpga_syncout_1_p
+set_instance_assignment -name IO_STANDARD "1.2 V" -to fpga_syncout_1_n
 set_instance_assignment -name IO_STANDARD "1.2 V" -to gpio[0]
 set_instance_assignment -name IO_STANDARD "1.2 V" -to gpio[1]
 set_instance_assignment -name IO_STANDARD "1.2 V" -to gpio[2]
@@ -254,6 +259,8 @@ set_instance_assignment -name IO_STANDARD "1.2 V" -to spi1_sclk
 set_instance_assignment -name IO_STANDARD "1.2 V" -to spi1_sdio
 set_instance_assignment -name IO_STANDARD "1.2 V" -to txen[0]
 set_instance_assignment -name IO_STANDARD "1.2 V" -to txen[1]
+
+set_global_assignment -name MESSAGE_DISABLE 15714
 
 # set optimization to get a better timing closure
 set_global_assignment -name OPTIMIZATION_MODE "Superior Performance"
