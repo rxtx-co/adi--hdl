@@ -139,7 +139,9 @@ set_input_delay -clock dco_3 -min -$data_delay [get_ports rx_db_p[3]]
 set_input_delay -clock dco_3 -clock_fall -max -add_delay  $data_delay [get_ports rx_db_p[3]]
 set_input_delay -clock dco_3 -clock_fall -min -add_delay -$data_delay [get_ports rx_db_p[3]]
 
-set_property IOB FALSE [get_cells -hierarchical -regexp {.*max_spi.*IO0_I_REG$}]; ##by default IOB is TRUE and this register is not being driven by any IO element
+##by default IOB is TRUE and this register is not being driven by any IO element
+set_property IOB FALSE [get_cells -hierarchical -regexp {.*max_spi.*IO0_I_REG$}];
+
 set_property IDELAY_VALUE 27 [get_cells i_system_wrapper/system_i/axi_ltc2387_0/inst/i_if/i_rx_da/i_rx_data_idelay]
 set_property IDELAY_VALUE 27 [get_cells i_system_wrapper/system_i/axi_ltc2387_0/inst/i_if/i_rx_db/i_rx_data_idelay]
 set_property IDELAY_VALUE 27 [get_cells i_system_wrapper/system_i/axi_ltc2387_1/inst/i_if/i_rx_da/i_rx_data_idelay]
